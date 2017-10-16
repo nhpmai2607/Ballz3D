@@ -24,6 +24,9 @@ project.lock.json
 *.pidb
 *.booproj
 
+# Serialize file
+*.bin
+
 WSATestCertificate.pfx
 WSATestCertificate.pfx.meta
 
