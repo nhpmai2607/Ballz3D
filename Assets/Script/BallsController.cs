@@ -7,6 +7,7 @@ public class BallsController : MonoBehaviour {
     List<BallController> ballControllers;
     public bool areBouncing;
     public int numBalls;
+    public int tempBonusBalls;
     public int hitGround;
     public int bouncingBalls;
     public GameObject ballPrefab;
@@ -56,6 +57,7 @@ public class BallsController : MonoBehaviour {
             areBouncing = true;
             bouncingBalls = 0;
             hitGround = 0;
+            tempBonusBalls = 0;
             //InstatiateBalls();
             mainBallPos = mainBall.transform.position;
             mainBallRot = mainBall.transform.rotation;
@@ -70,7 +72,7 @@ public class BallsController : MonoBehaviour {
         if (areBouncing && bouncingBalls < numBalls - 1 && shootTime >= 0.2)
         {
             GameObject ball = Instantiate(ballPrefab, mainBallPos, mainBallRot, transform);
-            Debug.Log("Instantiate " + bouncingBalls);
+            //Debug.Log("Instantiate " + bouncingBalls);
             ball.GetComponent<BallController>().Bouncing();
             bouncingBalls++;
             shootTime = 0;
@@ -83,6 +85,8 @@ public class BallsController : MonoBehaviour {
             spawn.getBlockDown();
             spawn.spawnBlock();
             hitGround = 0;
+            numBalls += tempBonusBalls;
+            tempBonusBalls = 0;
         }
     }
 }

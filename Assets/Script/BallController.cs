@@ -15,6 +15,7 @@ public class BallController : MonoBehaviour {
     LineRenderer directionLine;
     Rigidbody rb;
     BlocksController spawn;
+    BallsController ballsController;
 
     void Awake()
     {
@@ -26,6 +27,15 @@ public class BallController : MonoBehaviour {
     private void Start()
     {
         spawn = GameObject.Find("BlocksController").GetComponent<BlocksController>();
+        ballsController = GameObject.Find("BallsController").GetComponent<BallsController>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (isBouncing)
+        {
+            rb.AddForce(Vector3.zero);
+        }
     }
 
     public void RenderDirectionLine()
@@ -77,17 +87,17 @@ public class BallController : MonoBehaviour {
         {
             case "Ground":
                 //Debug.Log("In ball collision Ground before " + rb.velocity + transform.position + isBouncing);
-                Debug.Log("Collision Enter");
-                Debug.Log("position " + transform.position.x + " " + transform.position.y + " " + 
-                    transform.position.z + " isBouncing " + isBouncing + " onGround " + onGround);
+                //Debug.Log("Collision Enter");
+                //Debug.Log("position " + transform.position.x + " " + transform.position.y + " " + 
+                    //transform.position.z + " isBouncing " + isBouncing + " onGround " + onGround);
                 if (isBouncing && !onGround)
                 {
-                    GameObject.Find("BallsController").GetComponent<BallsController>().hitGround += 1;
+                    ballsController.hitGround += 1;
                     rb.velocity = Vector3.zero;
                     if (!isMain)
                     {
-                        Debug.Log("destroyyyy " + GameObject.Find("BallsController").GetComponent<BallsController>().hitGround);
-                        Debug.Log(transform.position);
+                        //Debug.Log("destroyyyy " + ballsController.hitGround);
+                        //Debug.Log(transform.position);
                         Destroy(this.gameObject);
                     }
                     //transform.position = new Vector3(transform.position.x, 0.025f, transform.position.z);
@@ -110,6 +120,18 @@ public class BallController : MonoBehaviour {
             case "Ground":
                 Debug.Log("Collision Exit");
                 isBouncing = true;
+                break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "BonusBall":
+                //Debug.Log("Trigger in ball");
+                ballsController.tempBonusBalls += 1;
+                spawn.removeBonusBall(other.gameObject);
                 break;
         }
     }

@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class BlocksController : MonoBehaviour {
     public GameObject blockPrefab;
+    public GameObject bonusBallPrefab;
     private List<GameObject> currentBlocks;
     public System.Random rnd;
+    bool isFirst;
 
     private void Awake()
     {
@@ -16,7 +18,14 @@ public class BlocksController : MonoBehaviour {
 
     private void Start()
     {
+        isFirst = true;
         spawnBlock();
+    }
+
+    public void removeBonusBall(GameObject bonusBall)
+    {
+        currentBlocks.Remove(bonusBall);
+        Destroy(bonusBall);
     }
 
     public void removeBlock(GameObject block)
@@ -32,7 +41,8 @@ public class BlocksController : MonoBehaviour {
     public void spawnBlock()
     {
         List<Vector3> currentPos = new List<Vector3>();
-        int numBlocks = rnd.Next(1, 4);
+        int numBlocks = rnd.Next(1, 5);
+
         for (int i = 0; i < numBlocks; i++)
         {
             Vector3 newPos = getNewPos(currentPos);
@@ -41,6 +51,16 @@ public class BlocksController : MonoBehaviour {
             GameObject newBlock = Instantiate(blockPrefab, newPos, Quaternion.identity, transform);
             currentBlocks.Add(newBlock);
         }
+
+        if (!isFirst)
+        {
+            Vector3 newPos = getNewPos(currentPos);
+            currentPos.Add(newPos);
+
+            GameObject newBonusBall = Instantiate(bonusBallPrefab, newPos, Quaternion.identity, transform);
+            currentBlocks.Add(newBonusBall);
+        }
+        isFirst = false;
     }
 
     public void getBlockDown()

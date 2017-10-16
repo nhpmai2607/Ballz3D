@@ -7,6 +7,8 @@ TagManager:
   - Boundary
   - Ground
   - Block
+  - BonusBall
+  - Ball
   layers:
   - Default
   - TransparentFX

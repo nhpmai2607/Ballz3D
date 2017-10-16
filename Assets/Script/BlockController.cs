@@ -15,7 +15,6 @@ public class BlockController : MonoBehaviour {
         rnd = GameObject.Find("BlocksController").GetComponent<BlocksController>().rnd;
         countController = GameObject.Find("CountController").GetComponent<CountController>();
         int count = countController.score.count;
-        count = Mathf.Max(1, count - 5);
         health = rnd.Next(1, count);
         setColor();
 	}
@@ -56,14 +55,9 @@ public class BlockController : MonoBehaviour {
         switch (collision.gameObject.tag)
         {
             case "Ground":
-                Debug.Log("Collision Loseeee!!!");
+                //Debug.Log("Collision Loseeee!!!");
                 countController.serializeScore();
                 SceneManager.LoadScene("GameOver");
-                break;
-            case "Ball":
-                Debug.Log("block controller + Collide block");
-                //BlocksController blocksController = GameObject.Find("BlocksController").GetComponent<BlocksController>();
-                //blocksController.removeBlock(this.gameObject);
                 break;
         }
     }
