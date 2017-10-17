@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class BallsController : MonoBehaviour {
     List<BallController> ballControllers;
+    public Text numBallsText;
     public bool areBouncing;
-    public int numBalls;
+    int numBalls;
     public int tempBonusBalls;
     public int hitGround;
     public int bouncingBalls;
@@ -28,6 +29,13 @@ public class BallsController : MonoBehaviour {
         areBouncing = false;
         countController.score.count = 0;
         countController.increaseCount();
+        numBalls = 1;
+        setNumBallsText();
+    }
+
+    void setNumBallsText()
+    {
+        numBallsText.text = "x" + numBalls;
     }
 
     void InstatiateBalls()
@@ -86,6 +94,7 @@ public class BallsController : MonoBehaviour {
             spawn.spawnBlock();
             hitGround = 0;
             numBalls += tempBonusBalls;
+            setNumBallsText();
             tempBonusBalls = 0;
         }
     }
