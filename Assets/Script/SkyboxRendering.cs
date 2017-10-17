@@ -7,13 +7,7 @@ public class SkyboxRendering : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (PlayerPrefs.HasKey("Background") && backgrounds.Length > PlayerPrefs.GetInt("Background"))
-        {
-            RenderSettings.skybox = backgrounds[PlayerPrefs.GetInt("Background")];
-        }
-        else
-        {
-            RenderSettings.skybox = backgrounds[0];
-        }
+        RenderSettings.skybox = PlayerPrefs.HasKey("Background") && backgrounds.Length > PlayerPrefs.GetInt("Background")
+            ? backgrounds[PlayerPrefs.GetInt("Background")] : backgrounds[0];
     }
 }

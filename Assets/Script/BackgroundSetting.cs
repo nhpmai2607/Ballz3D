@@ -14,14 +14,8 @@ public class BackgroundSetting : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //Debug.Log(backgrounds.Length);
-		if (PlayerPrefs.HasKey("Background") && backgrounds.Length > PlayerPrefs.GetInt("Background"))
-        {
-            index = PlayerPrefs.GetInt("Background");
-        }
-        else
-        {
-            index = 0;
-        }
+		index = PlayerPrefs.HasKey("Background") && backgrounds.Length > PlayerPrefs.GetInt("Background") 
+            ? PlayerPrefs.GetInt("Background") : 0;
         checkButtonsState();
     }
 

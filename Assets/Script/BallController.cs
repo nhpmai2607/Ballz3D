@@ -9,6 +9,7 @@ public class BallController : MonoBehaviour {
     public float range = 100f;
     public AudioClip bounceSound;
 
+    AudioSource audioSource;
     int shootableMask;
     public bool isBouncing = false;
     public bool isMain = false;
@@ -25,6 +26,7 @@ public class BallController : MonoBehaviour {
         shootableMask = LayerMask.GetMask("Shootable");
         directionLine = GetComponent<LineRenderer>();
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         //Debug.Log(LayerMask.NameToLayer("Ball"));
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Ball"), LayerMask.NameToLayer("Ball"));
     }
@@ -118,13 +120,20 @@ public class BallController : MonoBehaviour {
             case "Block":
                 //  Debug.Log("In Ball Collide block");
                 stayBlock = 0f;
-                GetComponent<AudioSource>().PlayOneShot(bounceSound);
+                playEffectSound();
                 spawn.removeBlock(collision.gameObject);
                 break;
             case "Boundary":
-                GetComponent<AudioSource>().PlayOneShot(bounceSound);
+                playEffectSound();
                 break;
         }
+    }
+
+    private void playEffectSound()
+    {
+        audioSource.volume = PlayerPrefs.HasKey("EffectSound") ? PlayerPrefs.GetFloat("EffectSound") : 1f;
+        audioSource.mute = PlayerPrefs.HasKey("EffectSoundMute") && PlayerPrefs.GetInt("EffectSoundMute") == 1 ? true : false;
+        audioSource.PlayOneShot(bounceSound);
     }
 
     private void OnCollisionStay(Collision collision)
