@@ -14,7 +14,7 @@ public class BlockController : MonoBehaviour {
 	void Start () {
         rnd = GameObject.Find("BlocksController").GetComponent<BlocksController>().rnd;
         countController = GameObject.Find("CountController").GetComponent<CountController>();
-        int count = countController.score.count;
+        int count = (int) Mathf.Max(1, countController.score.count * 1.8f);
         health = rnd.Next(1, count);
         setColor();
 	}

@@ -53,7 +53,7 @@ public class BallsController : MonoBehaviour {
     void FixedUpdate () {
         if (!areBouncing && Input.GetButtonDown("Jump"))
         {
-            Debug.Log("Jump");
+            //Debug.Log("Jump");
             areBouncing = true;
             bouncingBalls = 0;
             hitGround = 0;

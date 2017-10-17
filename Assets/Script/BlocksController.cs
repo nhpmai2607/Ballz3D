@@ -41,7 +41,7 @@ public class BlocksController : MonoBehaviour {
     public void spawnBlock()
     {
         List<Vector3> currentPos = new List<Vector3>();
-        int numBlocks = rnd.Next(1, 5);
+        int numBlocks = rnd.Next(1, 4);
 
         for (int i = 0; i < numBlocks; i++)
         {

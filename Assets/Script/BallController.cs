@@ -11,17 +11,21 @@ public class BallController : MonoBehaviour {
     int shootableMask;
     public bool isBouncing = false;
     public bool isMain = false;
-    bool onGround = false;
+    bool onGround = true;
     LineRenderer directionLine;
     Rigidbody rb;
     BlocksController spawn;
     BallsController ballsController;
+    float stayBlock;
 
     void Awake()
     {
+        onGround = true;
         shootableMask = LayerMask.GetMask("Shootable");
         directionLine = GetComponent<LineRenderer>();
         rb = GetComponent<Rigidbody>();
+        //Debug.Log(LayerMask.NameToLayer("Ball"));
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Ball"), LayerMask.NameToLayer("Ball"));
     }
 
     private void Start()
@@ -32,9 +36,9 @@ public class BallController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (isBouncing)
+        if (rb.IsSleeping() && isBouncing)
         {
-            rb.AddForce(Vector3.zero);
+            rb.WakeUp();
         }
     }
 
@@ -61,10 +65,10 @@ public class BallController : MonoBehaviour {
     public void Bouncing()
     {
         onGround = false;
-        Debug.Log("In Bouncing");
+        //Debug.Log("In Bouncing");
         directionLine.enabled = false;
         rb.AddForce(transform.forward * Time.deltaTime * shotForce);
-        Debug.Log("AddForce");
+        //Debug.Log("AddForce");
     }
 
     public void Turning()
@@ -89,7 +93,11 @@ public class BallController : MonoBehaviour {
                 //Debug.Log("In ball collision Ground before " + rb.velocity + transform.position + isBouncing);
                 //Debug.Log("Collision Enter");
                 //Debug.Log("position " + transform.position.x + " " + transform.position.y + " " + 
-                    //transform.position.z + " isBouncing " + isBouncing + " onGround " + onGround);
+                //transform.position.z + " isBouncing " + isBouncing + " onGround " + onGround);
+                //if (!isMain)
+                //{
+                    //Debug.Log("Enter ground: is Bouncing: " + isBouncing + " onGround: " + onGround);
+                //}
                 if (isBouncing && !onGround)
                 {
                     ballsController.hitGround += 1;
@@ -108,7 +116,23 @@ public class BallController : MonoBehaviour {
                 break;
             case "Block":
                 //  Debug.Log("In Ball Collide block");
+                stayBlock = 0f;
                 spawn.removeBlock(collision.gameObject);
+                break;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Block":
+                stayBlock += Time.deltaTime;
+                if (stayBlock >= 200)
+                {
+                    //Debug.Log("Collision stay");
+                    spawn.removeBlock(collision.gameObject);
+                }
                 break;
         }
     }
@@ -118,7 +142,10 @@ public class BallController : MonoBehaviour {
         switch (collision.gameObject.tag)
         {
             case "Ground":
-                Debug.Log("Collision Exit");
+                if (!isMain)
+                {
+                    //Debug.Log("Exit Ground");
+                }
                 isBouncing = true;
                 break;
         }
