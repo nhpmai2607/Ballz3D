@@ -7,6 +7,7 @@ public class BallController : MonoBehaviour {
     public float shotForce;
     public float moveSpeed;
     public float range = 100f;
+    public AudioClip bounceSound;
 
     int shootableMask;
     public bool isBouncing = false;
@@ -117,7 +118,11 @@ public class BallController : MonoBehaviour {
             case "Block":
                 //  Debug.Log("In Ball Collide block");
                 stayBlock = 0f;
+                GetComponent<AudioSource>().PlayOneShot(bounceSound);
                 spawn.removeBlock(collision.gameObject);
+                break;
+            case "Boundary":
+                GetComponent<AudioSource>().PlayOneShot(bounceSound);
                 break;
         }
     }
