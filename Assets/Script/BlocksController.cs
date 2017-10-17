@@ -6,6 +6,7 @@ using UnityEngine;
 public class BlocksController : MonoBehaviour {
     public GameObject blockPrefab;
     public GameObject bonusBallPrefab;
+    public GameObject moneyBallPrefab;
     private List<GameObject> currentBlocks;
     public System.Random rnd;
     bool isFirst;
@@ -28,6 +29,12 @@ public class BlocksController : MonoBehaviour {
         Destroy(bonusBall);
     }
 
+    public void removeMoneyBall(GameObject moneyBall)
+    {
+        currentBlocks.Remove(moneyBall);
+        Destroy(moneyBall);
+    }
+
     public void removeBlock(GameObject block)
     {
         BlockController blockController = block.GetComponent<BlockController>();
@@ -40,12 +47,13 @@ public class BlocksController : MonoBehaviour {
 
     public void spawnBlock()
     {
+        Vector3 newPos;
         List<Vector3> currentPos = new List<Vector3>();
         int numBlocks = rnd.Next(1, 4);
 
         for (int i = 0; i < numBlocks; i++)
         {
-            Vector3 newPos = getNewPos(currentPos);
+            newPos = getNewPos(currentPos);
             currentPos.Add(newPos);
 
             GameObject newBlock = Instantiate(blockPrefab, newPos, Quaternion.identity, transform);
@@ -54,13 +62,23 @@ public class BlocksController : MonoBehaviour {
 
         if (!isFirst)
         {
-            Vector3 newPos = getNewPos(currentPos);
+            newPos = getNewPos(currentPos);
             currentPos.Add(newPos);
 
             GameObject newBonusBall = Instantiate(bonusBallPrefab, newPos, Quaternion.identity, transform);
             currentBlocks.Add(newBonusBall);
         }
         isFirst = false;
+
+        int moneyChance = rnd.Next(0, 5);
+        if (moneyChance == 0)
+        {
+            newPos = getNewPos(currentPos);
+            currentPos.Add(newPos);
+
+            GameObject newMoneyBall = Instantiate(moneyBallPrefab, newPos, Quaternion.identity, transform);
+            currentBlocks.Add(newMoneyBall);
+        }
     }
 
     public void getBlockDown()

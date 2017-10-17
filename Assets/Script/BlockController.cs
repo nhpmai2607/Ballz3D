@@ -8,13 +8,13 @@ public class BlockController : MonoBehaviour {
     System.Random rnd;
 
     public Color defaultColor;
-    CountController countController;
+    PlayerController playerController;
 
 	// Use this for initialization
 	void Start () {
         rnd = GameObject.Find("BlocksController").GetComponent<BlocksController>().rnd;
-        countController = GameObject.Find("CountController").GetComponent<CountController>();
-        int count = (int) Mathf.Max(1, countController.score.count * 1.8f);
+        playerController = GameObject.Find("CustomCamera").GetComponent<PlayerController>();
+        int count = (int) Mathf.Max(1, playerController.player.count * 1.8f);
         health = rnd.Next(1, count);
         setColor();
 	}
@@ -56,7 +56,7 @@ public class BlockController : MonoBehaviour {
         {
             case "Ground":
                 //Debug.Log("Collision Loseeee!!!");
-                countController.serializeScore();
+                playerController.serializePlayer();
                 SceneManager.LoadScene("GameOver");
                 break;
         }

@@ -18,6 +18,7 @@ public class BallController : MonoBehaviour {
     Rigidbody rb;
     BlocksController spawn;
     BallsController ballsController;
+    PlayerController playerController;
     float stayBlock;
 
     void Awake()
@@ -35,6 +36,7 @@ public class BallController : MonoBehaviour {
     {
         spawn = GameObject.Find("BlocksController").GetComponent<BlocksController>();
         ballsController = GameObject.Find("BallsController").GetComponent<BallsController>();
+        playerController = GameObject.Find("CustomCamera").GetComponent<PlayerController>();
     }
 
     private void FixedUpdate()
@@ -172,6 +174,10 @@ public class BallController : MonoBehaviour {
             case "BonusBall":
                 //Debug.Log("Trigger in ball");
                 ballsController.tempBonusBalls += 1;
+                spawn.removeBonusBall(other.gameObject);
+                break;
+            case "MoneyBall":
+                playerController.increaseMoney();
                 spawn.removeBonusBall(other.gameObject);
                 break;
         }

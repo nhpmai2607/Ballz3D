@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114289146245832114}
   - component: {fileID: 82639930936217334}
   - component: {fileID: 114032514750294838}
+  - component: {fileID: 114837381089542584}
   m_Layer: 0
   m_Name: CustomCamera
   m_TagString: MainCamera
@@ -180,7 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bebf8d5f5bfe43448253330ef6147ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 0}
 --- !u!114 &114135950084725468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,6 +222,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba0c271b536048428c0e5b531f2cb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114837381089542584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197999628440758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a84287d9222fd4c95f41c5977bb1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countText: {fileID: 0}
+  bestScoreText: {fileID: 0}
+  moneyText: {fileID: 0}
 --- !u!124 &124156195850926144
 Behaviour:
   m_ObjectHideFlags: 1
