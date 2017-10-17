@@ -58,7 +58,7 @@ public class BallController : MonoBehaviour {
         }
         else
         {
-            directionLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+            directionLine.enabled = false;
         }
     }
 	
