@@ -147,7 +147,7 @@ public class BallController : MonoBehaviour {
         {
             case "Block":
                 stayBlock += Time.deltaTime;
-                if (stayBlock >= 200)
+                if (stayBlock >= 0.2)
                 {
                     //Debug.Log("Collision stay");
                     spawn.removeBlock(collision.gameObject);
