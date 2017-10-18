@@ -25,3 +25,6 @@
 * q | e : rotate screen
 * space : shoot
 * mouse : set direction
+
+### Note ###
+* This project is built using Unity 2017.2.0f3
