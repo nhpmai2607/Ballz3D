@@ -199,6 +199,12 @@ MonoBehaviour:
   bounceSound: {fileID: 8300000, guid: dc9d378bd2cb9d9469fcf8bf9e3a229f, type: 3}
   isBouncing: 0
   isMain: 0
+  materials:
+  - {fileID: 2100000, guid: a075266c6f421734e88061277566599b, type: 2}
+  - {fileID: 2100000, guid: 6444b5f61e1ae6448b4d3e7fc0817791, type: 2}
+  - {fileID: 2100000, guid: 6703bfbdd84e0a1439e9f323e32e93cf, type: 2}
+  - {fileID: 2100000, guid: 6270d8a492bee1146b7de92f4a5f60a8, type: 2}
+  - {fileID: 2100000, guid: 2b687d9b359bb7141a4e88e8d96e3dd8, type: 2}
 --- !u!120 &120163723672338470
 LineRenderer:
   m_ObjectHideFlags: 1

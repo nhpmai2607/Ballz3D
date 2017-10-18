@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour {
 
     public float rotSpeed;
 
-    Vector3 target;
+    public Vector3 target;
 
 	// Use this for initialization
 	void Start () {

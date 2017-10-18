@@ -7,11 +7,19 @@ public class BlockController : MonoBehaviour {
     int health;
     System.Random rnd;
 
+    public Material[] materials;
+
     public Color defaultColor;
     PlayerController playerController;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        GetComponent<MeshRenderer>().material = PlayerPrefs.HasKey("Block") && materials.Length > PlayerPrefs.GetInt("Block")
+            ? materials[PlayerPrefs.GetInt("Block")] : materials[0];
+    }
+
+    // Use this for initialization
+    void Start () {
         rnd = GameObject.Find("BlocksController").GetComponent<BlocksController>().rnd;
         playerController = GameObject.Find("CustomCamera").GetComponent<PlayerController>();
         int count = (int) Mathf.Max(1, playerController.player.count * 1.8f);

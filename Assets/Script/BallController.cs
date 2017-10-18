@@ -20,6 +20,7 @@ public class BallController : MonoBehaviour {
     BallsController ballsController;
     PlayerController playerController;
     float stayBlock;
+    public Material[] materials;
 
     void Awake()
     {
@@ -30,6 +31,8 @@ public class BallController : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         //Debug.Log(LayerMask.NameToLayer("Ball"));
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Ball"), LayerMask.NameToLayer("Ball"));
+        GetComponent<MeshRenderer>().material = PlayerPrefs.HasKey("Ball") && materials.Length > PlayerPrefs.GetInt("Ball")
+            ? materials[PlayerPrefs.GetInt("Ball")] : materials[0];
     }
 
     private void Start()

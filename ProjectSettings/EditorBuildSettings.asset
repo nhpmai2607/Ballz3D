@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Help.unity
     guid: 156002e18789a06449e885d8a2682426
+  - enabled: 1
+    path: Assets/Scene/Trade.unity
+    guid: e8d1015cdf9f04744861a578934eabc3

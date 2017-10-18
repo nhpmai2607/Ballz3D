@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void setMoneyText()
+    public void setMoneyText()
     {
         if (moneyText != null)
         {
