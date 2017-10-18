@@ -2,10 +2,10 @@
 
 ### Assignment 3 version 1.0 20/10/2017 ###
 
-RMIT University
-COSC2349 - Games Studio 2
-Semester 2, 2017
-Lecturer & Coordinator: Daniel Dang
+* RMIT University
+* COSC2349 - Games Studio 2
+* Semester 2, 2017
+* Lecturer & Coordinator: Daniel Dang
 
 Student Name: Mai Nguyen
 Student ID  : s3558475
