@@ -27,8 +27,8 @@ public class BallsController : MonoBehaviour {
         mainBallController = mainBall.GetComponent<BallController>();
         spawn = GameObject.Find("BlocksController").GetComponent<BlocksController>();
         areBouncing = false;
-        playerController.player.count = 0;
-        playerController.increaseCount();
+        //playerController.player.count = 0;
+        //playerController.increaseCount();
         numBalls = 1;
         setNumBallsText();
     }
@@ -89,7 +89,7 @@ public class BallsController : MonoBehaviour {
         if (hitGround == numBalls)
         {
             areBouncing = false;
-            playerController.increaseCount();
+            //playerController.increaseCount();
             spawn.getBlockDown();
             spawn.spawnBlock();
             hitGround = 0;

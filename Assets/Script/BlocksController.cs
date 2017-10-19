@@ -38,11 +38,11 @@ public class BlocksController : MonoBehaviour {
     public void removeBlock(GameObject block)
     {
         BlockController blockController = block.GetComponent<BlockController>();
-        if (blockController.DecreaseHealth())
+        /*if (blockController.DecreaseHealth())
         {
             currentBlocks.Remove(block);
             Destroy(block);
-        }
+        }*/
     }
 
     public void spawnBlock()

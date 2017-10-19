@@ -11,11 +11,10 @@ public class PlayerController : MonoBehaviour {
     public Text bestScoreText;
     public Text moneyText;
 
-    public Player player { get; set; }
+    public Player player { get; private set; }
 
     private void Awake()
     {
-        player = new Player();
         deserializePlayer();
         setBestScoreText();
         setCountText();
@@ -26,7 +25,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (countText != null)
         {
-            countText.text = "" + player.count;
+            countText.text = "" + PlayerPrefs.GetInt("Count", 0);
         }
     }
 
@@ -46,12 +45,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void increaseCount()
-    {
-        player.count += 1;
-        setCountText();
-    }
-
     public void increaseMoney()
     {
         player.money += 1;
@@ -61,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 
     public void serializePlayer()
     {
-        player.bestScore = Mathf.Max(player.bestScore, player.count);
+        player.bestScore = Mathf.Max(player.bestScore, PlayerPrefs.GetInt("Count", 0));
         try
         {
             using (Stream stream = File.Open("player.bin", FileMode.Create))
@@ -88,6 +81,7 @@ public class PlayerController : MonoBehaviour {
         }
         catch (IOException)
         {
+            player = new Player();
         }
     }
 }
