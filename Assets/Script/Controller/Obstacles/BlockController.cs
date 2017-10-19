@@ -7,7 +7,7 @@ public class BlockController : MonoBehaviour {
     public Block model { get; private set; }
     private BlockView view;
 
-    GameController gameController;
+    private GameState gameState;
 
     private void Awake()
     {
@@ -16,9 +16,9 @@ public class BlockController : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
-        int count = (int) Mathf.Max(1, gameController.model.count * 1.8f);
+    private void Start () {
+        gameState = GameObject.Find("GameController").GetComponent<GameController>().model;
+        int count = (int) Mathf.Max(1, gameState.count * 1.8f);
         model.health = Random.Range(1, count);
         view.SetColor(model.health);
 	}
@@ -37,7 +37,7 @@ public class BlockController : MonoBehaviour {
     private void OnCollisionEnterGround(Collision collision)
     {
         //Debug.Log("Collision Loseeee!!!");
-        gameController.model.isGameOver = true;
+        gameState.isGameOver = true;
     }
 
     private void OnCollisionEnter(Collision collision)

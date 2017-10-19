@@ -921,6 +921,60 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 297313966}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &552772564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 552772567}
+  - component: {fileID: 552772566}
+  - component: {fileID: 552772565}
+  m_Layer: 0
+  m_Name: ShootController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &552772565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 552772564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78aef8bb71420049939ecb23b2bc04b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 1823834506160624, guid: f544bf1a755cf2044ac313021dec9178, type: 2}
+--- !u!114 &552772566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 552772564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319b12961cc3aad4fb0bb85510b39a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainBallController: {fileID: 1753551841}
+--- !u!4 &552772567
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 552772564}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586693014
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +1018,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numBallsText: {fileID: 871205989}
   countText: {fileID: 335164140}
-  ballPrefab: {fileID: 1823834506160624, guid: f544bf1a755cf2044ac313021dec9178, type: 2}
 --- !u!114 &586693017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,10 +1029,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb7cbe42a102ee4ba83df9fb9c0cf9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainBallController: {fileID: 1753551841}
   mapController: {fileID: 1282509799}
   playerController: {fileID: 133039057}
   sceneController: {fileID: 224470787}
+  mainBallController: {fileID: 1753551841}
+  shootController: {fileID: 552772566}
 --- !u!1001 &657107449
 Prefab:
   m_ObjectHideFlags: 0
@@ -1380,7 +1434,7 @@ Prefab:
     - target: {fileID: 224192988102352000, guid: c8754e49e7efb974e969e0444f4002dc,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -491.5008
+      value: -529.7184
       objectReference: {fileID: 0}
     - target: {fileID: 224192988102352000, guid: c8754e49e7efb974e969e0444f4002dc,
         type: 2}
@@ -1420,7 +1474,7 @@ Prefab:
     - target: {fileID: 224192988102352000, guid: c8754e49e7efb974e969e0444f4002dc,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 3.665985
+      value: 3.6660156
       objectReference: {fileID: 0}
     - target: {fileID: 224192988102352000, guid: c8754e49e7efb974e969e0444f4002dc,
         type: 2}

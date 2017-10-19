@@ -6,13 +6,11 @@ public class GameController : MonoBehaviour {
     public GameState model { get; private set; }
     private GameView view;
 
-    public BallController mainBallController;
     public MapController mapController;
     public PlayerController playerController;
     public SceneController sceneController;
-
-    private Vector3 mainBallPos;
-    private Quaternion mainBallRot;
+    public BallController mainBallController;
+    public ShootController shootController;
 
     private void Awake () {
         model = new GameState();
@@ -26,27 +24,23 @@ public class GameController : MonoBehaviour {
     }
 
     private void Update () {
-        if (model.isGameOver)
-        {
-            sceneController.LoadScene("GameOver");
-        }
+        OnGameOver();
 
-        if (!model.areBouncing)
-        {
-            mainBallController.Turning();
-            mainBallController.RenderDirectionLine();
-        }
+        GetMouseInput();
 
-        CheckFinishBouncing();
+        OnFinishShoot();
     }
 
     private void FixedUpdate()
     {
-        ShootMainBall();
+        shootController.ShootMainBall();
 
-        model.IncreaseShootTime(Time.deltaTime);
+        if (model.areBouncing)
+        {
+            shootController.model.IncreaseShootTime(Time.deltaTime);
+        }
 
-        InstantiateAndShootBouncingBall();
+        shootController.InstantiateAndShootBouncingBall();
     }
 
     private void OnDestroy()
@@ -56,38 +50,30 @@ public class GameController : MonoBehaviour {
         playerController.serializePlayer();
     }
 
-    private void ShootMainBall()
+    private void OnFinishShoot()
     {
-        if (!model.areBouncing && Input.GetButtonDown("Jump"))
+        if (shootController.CheckFinishShoot())
         {
-            //Debug.Log("Jump");
-            model.UpdateBeforeShoot();
-            mainBallPos = mainBallController.gameObject.transform.position;
-            mainBallRot = mainBallController.gameObject.transform.rotation;
-            mainBallController.Bouncing();
-        }
-    }
-
-    private void InstantiateAndShootBouncingBall()
-    {
-        // each bouncing ball is shot 0.2 sec after the previous shoot
-        if (model.areBouncing && model.bouncingBalls < model.numBalls - 1 && model.shootTime >= model.shootDuration)
-        {
-            GameObject ball = view.InstantiateBouncingBall(mainBallPos, mainBallRot);
-            //Debug.Log("Instantiate " + bouncingBalls);
-            ball.GetComponent<BallController>().Bouncing();
-            model.UpdateAfterShootBouncingBall();
-        }
-    }
-
-    private void CheckFinishBouncing()
-    {
-        if (model.hitGround == model.numBalls)
-        {
-            model.UpdateAfterFinishBouncing();
             view.UpdateView(model.numBalls, model.count);
             mapController.MoveObstaclesDown();
             mapController.SpawnObstacles();
+        }
+    }
+
+    private void OnGameOver()
+    {
+        if (model.isGameOver)
+        {
+            sceneController.LoadScene("GameOver");
+        }
+    }
+
+    private void GetMouseInput()
+    {
+        if (!model.areBouncing)
+        {
+            mainBallController.Turning();
+            mainBallController.RenderDirectionLine();
         }
     }
 }

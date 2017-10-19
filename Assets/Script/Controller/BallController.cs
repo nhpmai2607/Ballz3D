@@ -13,7 +13,7 @@ public class BallController : MonoBehaviour {
     private Rigidbody rb;
 
     MapController mapController;
-    GameController gameController;
+    Shoot shoot;
     PlayerController playerController;
 
     void Awake()
@@ -28,7 +28,7 @@ public class BallController : MonoBehaviour {
     private void Start()
     {
         mapController = GameObject.Find("MapController").GetComponent<MapController>();
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        shoot = GameObject.Find("GameController").GetComponent<GameController>().shootController.model;
         playerController = GameObject.Find("CustomCamera").GetComponent<PlayerController>();
     }
 
@@ -80,7 +80,7 @@ public class BallController : MonoBehaviour {
     {
         if (model.isBouncing && !model.onGround)
         {
-            gameController.model.IncreaseHitGround();
+            shoot.IncreaseHitGround();
             rb.velocity = Vector3.zero;
             if (!isMain)
             {
@@ -174,7 +174,7 @@ public class BallController : MonoBehaviour {
 
     private void OnTriggerEnterBonusBall(Collider other)
     {
-        gameController.model.IncreaseTempBonusBalls();
+        shoot.IncreaseTempBonusBalls();
         mapController.RemoveObstacle(Map.Obstacles.BONUSBALL, other.gameObject);
     }
 

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameView : MonoBehaviour {
     public Text numBallsText;
     public Text countText;
-    public GameObject ballPrefab;
 
     public void UpdateNumBallsText(int numBalls)
     {
@@ -22,10 +21,5 @@ public class GameView : MonoBehaviour {
     {
         UpdateNumBallsText(numBalls);
         UpdateCountText(count);
-    }
-
-    public GameObject InstantiateBouncingBall(Vector3 mainBallPos, Quaternion mainBallRot)
-    {
-        return Instantiate(ballPrefab, mainBallPos, mainBallRot, transform);
     }
 }
