@@ -14,8 +14,6 @@ public class BallView : MonoBehaviour {
         directionLine = GetComponent<LineRenderer>();
         GetComponent<MeshRenderer>().material = PlayerPrefs.HasKey("Ball") && materials.Length > PlayerPrefs.GetInt("Ball")
             ? materials[PlayerPrefs.GetInt("Ball")] : materials[0];
-
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Ball"), LayerMask.NameToLayer("Ball"));
     }
 
     // Use this for initialization

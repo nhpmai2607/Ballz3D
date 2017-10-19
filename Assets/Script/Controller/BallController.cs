@@ -21,6 +21,8 @@ public class BallController : MonoBehaviour {
         view = GetComponent<BallView>();
         model = new Ball(shotForce, moveSpeed, LayerMask.GetMask("Shootable"), view.bounceSound);
         rb = GetComponent<Rigidbody>();
+
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Ball"), LayerMask.NameToLayer("Ball"));
     }
 
     private void Start()
