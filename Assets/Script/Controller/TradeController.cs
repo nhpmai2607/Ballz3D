@@ -19,7 +19,7 @@ public class TradeController : MonoBehaviour {
 
     public void OnBuyMaterial(int index)
     {
-        int price = (index + 1) * 5;
+        int price = (index + 1) * 1;
         if (price <= playerController.player.money)
         {
             materialsPrice[index].SetActive(false);
