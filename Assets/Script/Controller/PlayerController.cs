@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Awake()
     {
+        player = new Player();
         deserializePlayer();
         setBestScoreText();
         setCountText();
@@ -81,7 +82,6 @@ public class PlayerController : MonoBehaviour {
         }
         catch (IOException)
         {
-            player = new Player();
         }
     }
 }
