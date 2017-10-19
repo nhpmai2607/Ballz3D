@@ -39,6 +39,10 @@ public class SoundLoading : MonoBehaviour {
 
     public void onEffectSoundToggle(bool isOn)
     {
+        if (effect != null)
+        {
+            effect.mute = !isOn;
+        }
         if (isOn)
         {
             PlayerPrefs.SetInt("EffectSoundMute", 0);
