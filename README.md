@@ -19,7 +19,9 @@
 * Audio sound effects - background sound and bouncing sound
 * Different backgrounds - change in "Setting" scene
 * Recording previous high scores
-* Unlock system for additional types of materials - collect "star" to exchange materials for ball and blocks
+* Unlock system for additional types of materials - collect orange balls to exchange materials for ball and blocks
+* Collect white balls increases the number of shooting-out balls
+* Preferences system to turn on/off and change volume of sounds, choose backgrounds, the main ball and blocks materials
 
 ### Controls ###
 * q | e : rotate screen
@@ -27,4 +29,6 @@
 * mouse : set direction
 
 ### Note ###
-* This project is built using Unity 2017.2.0f3
+* sometimes balls keep sliding on the ground - click restart to start again
+* sometimes shoot in wrong direction
+* this project is built in Unity version 2017.2.0f3, try open it with other version may lose Material and Light data
