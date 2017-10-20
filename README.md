@@ -9,6 +9,9 @@
 * Student Name: Mai Nguyen
 * Student ID  : s3558475
 
+### Important Note ###
+* This project is built in Unity version 2017.2.0f3, try open it with other version may lose Material and Light data
+
 ### Implemented features ###
 
 * Core gameplay loop
@@ -28,7 +31,10 @@
 * space : shoot
 * mouse : set direction
 
-### Note ###
-* sometimes balls keep sliding on the ground - click restart to start again
-* sometimes shoot in wrong direction
-* this project is built in Unity version 2017.2.0f3, try open it with other version may lose Material and Light data
+### Known Issues ###
+* Sometimes balls keep sliding on the ground - click restart to start again
+* Sometimes shoot in wrong direction
+
+### Source ###
+* Audio: https://www.dl-sounds.com/royalty-free/category/game-film/video-game/
+* Icon: http://www.iconsdb.com/
