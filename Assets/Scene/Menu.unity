@@ -200,8 +200,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 35045861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 419.5, y: 180, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 512, y: 384, z: 0}
+  m_LocalScale: {x: 1.28, y: 1.28, z: 1.28}
   m_Children:
   - {fileID: 449505769}
   - {fileID: 722531292}
@@ -381,6 +381,11 @@ Prefab:
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114032514750294838, guid: 4d5973960cfef224b80ecaa2a3bebe76,
+        type: 2}
+      propertyPath: backgroundButton
+      value: 
+      objectReference: {fileID: 1072955137}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d5973960cfef224b80ecaa2a3bebe76, type: 2}
   m_IsPrefabParent: 0
@@ -829,6 +834,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224934572419820886, guid: 1c20285c0b1c65c47b48fb6de8a00d1d,
     type: 2}
   m_PrefabInternal: {fileID: 929533354}
+--- !u!114 &1072955137 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114942406555530896, guid: e3df82cbf85f57345a673301837da705,
+    type: 2}
+  m_PrefabInternal: {fileID: 138989939}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1124297748
 Prefab:
   m_ObjectHideFlags: 0

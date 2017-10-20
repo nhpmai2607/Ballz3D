@@ -2456,7 +2456,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1510089786565642, guid: e3df82cbf85f57345a673301837da705, type: 2}
       propertyPath: m_Name
-      value: BgMusicToggle
+      value: BgSoundToggle
       objectReference: {fileID: 0}
     - target: {fileID: 114942406555530896, guid: e3df82cbf85f57345a673301837da705,
         type: 2}
@@ -2476,6 +2476,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3df82cbf85f57345a673301837da705, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1391265585 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114942406555530896, guid: e3df82cbf85f57345a673301837da705,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391265584}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1396749180
 Prefab:
   m_ObjectHideFlags: 0
@@ -3514,6 +3520,11 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 674d6f0d83eee864ba7d9678a713ca02, type: 3}
+    - target: {fileID: 114032514750294838, guid: 4d5973960cfef224b80ecaa2a3bebe76,
+        type: 2}
+      propertyPath: backgroundButton
+      value: 
+      objectReference: {fileID: 1391265585}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d5973960cfef224b80ecaa2a3bebe76, type: 2}
   m_IsPrefabParent: 0

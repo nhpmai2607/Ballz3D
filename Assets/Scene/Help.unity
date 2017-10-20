@@ -415,6 +415,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3df82cbf85f57345a673301837da705, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &26933821 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114942406555530896, guid: e3df82cbf85f57345a673301837da705,
+    type: 2}
+  m_PrefabInternal: {fileID: 26933820}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &89352346 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224192988102352000, guid: c8754e49e7efb974e969e0444f4002dc,
@@ -507,8 +513,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 498095296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 272, y: 81.5, z: 0}
-  m_LocalScale: {x: 0.27166668, y: 0.27166668, z: 0.27166668}
+  m_LocalPosition: {x: 512, y: 384, z: 0}
+  m_LocalScale: {x: 1.28, y: 1.28, z: 1.28}
   m_Children:
   - {fileID: 115764990}
   - {fileID: 1310360216}
@@ -967,6 +973,11 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 73411f8160def4b4caa5264eb8eec960, type: 3}
+    - target: {fileID: 114032514750294838, guid: 4d5973960cfef224b80ecaa2a3bebe76,
+        type: 2}
+      propertyPath: backgroundButton
+      value: 
+      objectReference: {fileID: 26933821}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d5973960cfef224b80ecaa2a3bebe76, type: 2}
   m_IsPrefabParent: 0

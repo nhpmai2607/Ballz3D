@@ -661,6 +661,16 @@ Prefab:
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 2105760318}
+    - target: {fileID: 114032514750294838, guid: 4d5973960cfef224b80ecaa2a3bebe76,
+        type: 2}
+      propertyPath: backgroundButton
+      value: 
+      objectReference: {fileID: 657107451}
+    - target: {fileID: 114032514750294838, guid: 4d5973960cfef224b80ecaa2a3bebe76,
+        type: 2}
+      propertyPath: effectButton
+      value: 
+      objectReference: {fileID: 238249122}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d5973960cfef224b80ecaa2a3bebe76, type: 2}
   m_IsPrefabParent: 0
@@ -801,6 +811,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224927441701472470, guid: e3df82cbf85f57345a673301837da705,
     type: 2}
   m_PrefabInternal: {fileID: 238249120}
+--- !u!114 &238249122 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114942406555530896, guid: e3df82cbf85f57345a673301837da705,
+    type: 2}
+  m_PrefabInternal: {fileID: 238249120}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &297313966
 Prefab:
   m_ObjectHideFlags: 0
@@ -1153,6 +1169,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224927441701472470, guid: e3df82cbf85f57345a673301837da705,
     type: 2}
   m_PrefabInternal: {fileID: 657107449}
+--- !u!114 &657107451 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114942406555530896, guid: e3df82cbf85f57345a673301837da705,
+    type: 2}
+  m_PrefabInternal: {fileID: 657107449}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &760544778
 GameObject:
   m_ObjectHideFlags: 0
